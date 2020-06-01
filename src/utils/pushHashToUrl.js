@@ -6,7 +6,9 @@
  */
 export const pushHashToUrl = (hash) => {
   if (window.history.pushState) {
-    window.history.pushState(null, null, hash);
+    // window.history.pushState(null, null, hash);
+    // change
+    window.history.replaceState(null, null, hash);
 
     return;
   }

@@ -389,7 +389,10 @@ export default {
       const hashElement = document.getElementById(getIdFromHash(hash));
       if (!hashElement) return;
 
-      window.location.hash = ''; // Clears the hash to prevent scroll from jumping
+      // window.location.hash = ''; // Clears the hash to prevent scroll from jumping
+      // change
+      // use replace state to avoid history f-up
+      history.replaceState(null, null, `${window.location.href}`.replace('/#.+/', ''));
 
       setTimeout(() => {
         const yPos = hashElement.offsetTop - this.offset;
